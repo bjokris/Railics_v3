@@ -1,6 +1,8 @@
 
 #include <arduinoFFT.h>
 #include "seek2.h"
+#include <iostream>
+using namespace std;
 
 // Detection parameters
 const float lowRange = 3000.0f;
@@ -194,5 +196,6 @@ static seek2_result brake_sound_detector(int16_t *samples, uint32_t samples_size
     result.peak = peak/ std::sqrt(sumSq / samples_size);
     
     result.brakeSoundMagnitude = sumPeakMagnitudes / (highRange - lowRange); // consider dividing by sumMagnitudes;
+    cout << "\n Utskrift resul.brakesoundMagnitude" << result.brakeSoundMagnitude;
     return result;
 }
