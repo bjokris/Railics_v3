@@ -205,8 +205,8 @@ static void write_seekResult_toSdcard(uint16_t seek_index, dateTime_t dt)
     char buf[128] = {0};
     int buf_len = snprintf(buf, sizeof(buf), "%02d/%02d/%04d-%02d:%02d:%02d,%d,%f\r\n",
                     dt.day, dt.month, dt.year, dt.hour, dt.minute, dt.second,
-                    g_seek_result_num, seek_data.magnitude);
-    DBG_OUT("Magnitude: %f\r\n", seek_data.magnitude);
+                    g_seek_result_num, "Magnitude; ", seek_data.magnitude, "Crest Factor" , seek_data.peak);
+    DBG_OUT("Magnitude: %f\r\n", seek_data.magnitude, " Crest Factor", seek_data.peak);
     char filePath[128] = {0};
     DBG_OUT_I("seek to file: %s\r\n", buf);
     snprintf(filePath, sizeof(filePath), "/seek_%d_tx_result.csv", seek_index);
